@@ -42,7 +42,10 @@ def main():
         start_int = int(start_str)
         end_int = int(end_str)
 
-        # now that we are checking for ids where they are made entirely of any length of repeating sequence, we should look at multiples of the length of the start range?
+        # now that we are checking for ids where they are made entirely of any length of repeating sequence, we should look at factors of the length of the start range and end range?
+        # if range is 20345 - 139457
+        # then we should check repeating sequences of length 1, and 5 (factors of 5, which is length of start of range)
+        # and check repeating sequences of length 1, and 6, 3, 2 (factors of 6, which is length of end of range)
 
         first_half_start_str = start_str[:repeating_pattern_len]
         first_half_start = int(first_half_start_str)

@@ -21,8 +21,6 @@ def main():
         filter(lambda x: is_even(len(x[0])) or is_even(len(x[1])), id_ranges)
     )
 
-    repeating_sequence_ranges: list[tuple[str, str]] = []
-
     invalid_id_set: set[int] = set()
 
     sum = 0
@@ -41,34 +39,25 @@ def main():
 
         repeating_pattern_len = start_str_len // 2
 
+        start_int = int(start_str)
+        end_int = int(end_str)
+
         first_half_start_str = start_str[:repeating_pattern_len]
-        second_half_start_str = start_str[repeating_pattern_len:]
         first_half_start = int(first_half_start_str)
-        second_half_start = int(second_half_start_str)
         first_half_end_str = end_str[:repeating_pattern_len]
-        second_half_end_str = end_str[repeating_pattern_len:]
         first_half_end = int(first_half_end_str)
-        second_half_end = int(second_half_end_str)
-        sequence_start = str(max(first_half_start, second_half_start))
-        sequence_end = str(min(first_half_end, second_half_end))
+        sequence_start = str(first_half_start)
+        sequence_end = str(first_half_end)
 
-        repeating_sequence_ranges.append([sequence_start, sequence_end])
+        # Process Repeating Sequence
+        repeat_sequence_start = int(sequence_start)
+        repeat_sequence_end = int(sequence_end)
 
-    for repeating_sequence_range in repeating_sequence_ranges:
-        start_str, end_str = repeating_sequence_range
-
-        start = int(start_str)
-        end = int(end_str)
-
-        print(start, end)
-
-        for i in range(start, end + 1):
+        for i in range(repeat_sequence_start, repeat_sequence_end + 1):
             full_num_str = str(i) * 2
             full_num = int(full_num_str)
-            print(full_num)
-            if full_num not in invalid_id_set:
+            if start_int <= full_num <= end_int:
                 sum += full_num
-                invalid_id_set.add(full_num)
 
     print("sum of invalid ids is", sum)
 

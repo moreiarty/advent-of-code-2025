@@ -42,6 +42,8 @@ def main():
         start_int = int(start_str)
         end_int = int(end_str)
 
+        # now that we are checking for ids where they are made entirely of any length of repeating sequence, we should look at multiples of the length of the start range?
+
         first_half_start_str = start_str[:repeating_pattern_len]
         first_half_start = int(first_half_start_str)
         first_half_end_str = end_str[:repeating_pattern_len]

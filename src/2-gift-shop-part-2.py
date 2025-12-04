@@ -47,6 +47,8 @@ def main():
         # then we should check repeating sequences of length 1, and 5 (factors of 5, which is length of start of range)
         # and check repeating sequences of length 1, and 6, 3, 2 (factors of 6, which is length of end of range)
 
+        # 20345 - 2034520345????
+
         first_half_start_str = start_str[:repeating_pattern_len]
         first_half_start = int(first_half_start_str)
         first_half_end_str = end_str[:repeating_pattern_len]

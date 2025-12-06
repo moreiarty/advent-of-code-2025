@@ -2,6 +2,9 @@ from utils import read_input
 from functools import reduce
 
 
+no_of_batteries_to_select_in_each_bank = 12
+
+
 def main():
     battery_banks = list(
         read_input(
@@ -13,7 +16,6 @@ def main():
 
     total_max_output_joltage = 0
 
-    no_of_batteries_to_select_in_each_bank = 12
     for b, battery_bank in enumerate(battery_banks):
         selected_joltages = [0] * no_of_batteries_to_select_in_each_bank
 

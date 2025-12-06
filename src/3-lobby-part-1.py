@@ -12,9 +12,6 @@ def main():
 
     total_max_output_joltage = 0
     for j, battery_bank in enumerate(battery_banks):
-        if j == 1:
-            print(battery_bank)
-
         first_battery_joltage = 0
         second_battery_joltage = 0
 
@@ -30,10 +27,6 @@ def main():
         max_output_joltage = int(
             str(first_battery_joltage) + str(second_battery_joltage)
         )
-
-        if j == 1:
-            print(max_output_joltage)
-
         total_max_output_joltage += max_output_joltage
 
     print("largest output joltage is", total_max_output_joltage)

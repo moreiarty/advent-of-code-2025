@@ -12,24 +12,35 @@ def main():
     print("no of battery banks:", len(battery_banks))
 
     total_max_output_joltage = 0
+
+    no_of_batteries_to_select_in_each_bank = 12
     for b, battery_bank in enumerate(battery_banks):
-        selected_joltages = [0] * 12
+        selected_joltages = [0] * no_of_batteries_to_select_in_each_bank
 
         battery_bank_length = len(battery_bank)
         for i, battery_joltage_str in enumerate(battery_bank):
             battery_joltage = int(battery_joltage_str)
             for j, selected_joltage in enumerate(selected_joltages):
-                if battery_joltage > selected_joltage and i < battery_bank_length - 11:
+                if battery_joltage > selected_joltage and i < battery_bank_length - (
+                    no_of_batteries_to_select_in_each_bank - 1
+                ):
                     selected_joltages = (
-                        selected_joltages[:j] + [battery_joltage] + [0] * (11 - j)
+                        selected_joltages[:j]
+                        + [battery_joltage]
+                        + [0] * ((no_of_batteries_to_select_in_each_bank - 1) - j)
                     )
                     break
                 elif (
                     battery_joltage > selected_joltage
-                    and j > i - battery_bank_length + 11
+                    and j
+                    > i
+                    - battery_bank_length
+                    + (no_of_batteries_to_select_in_each_bank - 1)
                 ):
                     selected_joltages = (
-                        selected_joltages[:j] + [battery_joltage] + [0] * (11 - j)
+                        selected_joltages[:j]
+                        + [battery_joltage]
+                        + [0] * ((no_of_batteries_to_select_in_each_bank - 1) - j)
                     )
                     break
 

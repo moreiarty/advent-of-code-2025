@@ -1,5 +1,4 @@
 from utils import read_input
-from typing import TypedDict, Optional
 
 
 def is_even(x: int) -> bool:
